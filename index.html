@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Источник света -->
+      <a-light type="point" position="2 4 4" color="#FFF"></a-light>
+      
+      <!-- Куб -->
+      <a-box position="0 1 -5" color="blue" animation="property: rotation; to: 360 360 360; loop: true; dur: 5000"></a-box>
+      
+      <!-- Сфера -->
+      <a-sphere position="-2 1.5 -5" radius="1.2" color="red" animation="property: rotation; to: 360 360 0; loop: true; dur: 4000"></a-sphere>
+      
+      <!-- Цилиндр -->
+      <a-cylinder position="2 1 -5" radius="0.5" height="2" color="green" animation="property: rotation; to: 0 360 360; loop: true; dur: 6000"></a-cylinder>
+      
+      <!-- Текст -->
+      <a-text position="-1 3 -5" value="Привет, A-Frame!" color="yellow" scale="2 2 2"></a-text>
+      
+      <!-- Музыка -->
+      <a-sound src="spongebob-disappointed.mp3" autoplay="true" loop="true"></a-sound>
+      <a-sound src="muzyka-iz-multfilma-spanch-gubka-bob-kvadratnye-shtany.mp3" autoplay="true" loop="true"></a-sound>
+      <!-- Интерактивность -->
+      <a-sphere position="-2 1.5 -5" radius="1.2" color="red" class="interactive"></a-sphere>
+      <a-cylinder position="2 1 -5" radius="0.5" height="2" color="green" class="interactive"></a-cylinder>
+      
+      <script>
+        document.querySelectorAll('.interactive').forEach(el => {
+          el.addEventListener('click', function () {
+            this.setAttribute('color', this.getAttribute('color') === 'red' ? 'orange' : 'red');
+          });
+        });
+      </script>
+    </a-scene>
+  </body>
+</html>
